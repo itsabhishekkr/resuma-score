@@ -6,7 +6,7 @@ services:
     plan: free
     region: singapore
     buildCommand: docker build -t backend .
-    startCommand: java -jar app.jar # Start command is defined in Dockerfile ENTRYPOINT, but Render sometimes asks. Dockerfile ENTRYPOINT usually takes precedence.
+    # startCommand removed as it is not allowed for Docker runtime
     envVars:
       - key: SPRING_PROFILES_ACTIVE
         value: prod
@@ -25,7 +25,7 @@ services:
     name: resume-analyser-frontend
     env: static
     plan: free
-    region: singapore
+    # region removed for static site
     rootDir: frontend
     buildCommand: npm install && npm run build
     staticPublishPath: ./dist
@@ -38,7 +38,7 @@ services:
         fromService:
           type: web
           name: resume-analyser-backend
-          property: url
+          property: host
 
 databases:
   - name: resume-db
