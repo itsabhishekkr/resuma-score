@@ -24,7 +24,6 @@ services:
   - type: web
     name: resume-analyser-frontend
     env: static
-    plan: free
     # region removed for static site
     rootDir: frontend
     buildCommand: npm install && npm run build
