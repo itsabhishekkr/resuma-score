@@ -21,7 +21,7 @@ services:
     healthCheckPath: /actuator/health
 
   # Frontend Service (React/Vite)
-  - type: static
+  - type: web
     name: resume-analyser-frontend
     env: static
     plan: free
